@@ -5,10 +5,11 @@ backend:
 media_folder: static/assets
 
 collections:
-  - name: blog
-    label: Blog
-    folder: blog
+  - name: "blog"
+    label: "Blog"
+    folder: "src/pages/blog"
     create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - { name: title, label: Title }
       - { name: date, label: Date, widget: date }

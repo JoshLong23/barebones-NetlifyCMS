@@ -1,44 +1,53 @@
 const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
-exports.onCreateNode = ({ node, getNode, actions }) => {
-  const { createNodeField } = actions;
-  if (node.internal.type === `MarkdownRemark`) {
-    const slug = createFilePath({ node, getNode, basePath: 'blog/' });
-    createNodeField({
-      node,
-      name: `slug`,
-      value: slug
-    });
-  }
-};
-
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
-  return new Promise((resolve, reject) => {
-    graphql(`
-      {
-        allMarkdownRemark {
-          edges {
-            node {
-              fields {
-                slug
-              }
+
+  return graphql(`
+    {
+      allMarkdownRemark {
+        edges {
+          node {
+            id
+            fields {
+              slug
             }
           }
         }
       }
-    `).then(result => {
-      result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-        createPage({
-          path: node.fields.slug,
-          component: path.resolve(`./src/templates/blog-post.js`),
-          context: {
-            slug: node.fields.slug
-          }
-        });
+    }
+  `).then(result => {
+    if (result.errors) {
+      result.errors.forEach(e => console.error(e.toString()));
+      return Promise.reject(result.errors);
+    }
+
+    const posts = result.data.allMarkdownRemark.edges;
+
+    posts.forEach(edge => {
+      const id = edge.node.id;
+      createPage({
+        path: edge.node.fields.slug,
+        component: path.resolve(`src/templates/blog-post.js`),
+        // additional data can be passed via context
+        context: {
+          id
+        }
       });
-      resolve();
     });
   });
+};
+
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions;
+
+  if (node.internal.type === `MarkdownRemark`) {
+    const value = createFilePath({ node, getNode });
+    createNodeField({
+      name: `slug`,
+      node,
+      value
+    });
+  }
 };
