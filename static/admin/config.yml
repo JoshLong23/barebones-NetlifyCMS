@@ -13,5 +13,4 @@ collections:
     fields:
       - { name: title, label: Title }
       - { name: date, label: Date, widget: date }
-      - { name: path, label: Path }
       - { name: body, label: Body, widget: markdown }
