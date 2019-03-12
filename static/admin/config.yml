@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: https://github.com/JoshLong23/barebones-NetlifyCMS
+  repo: JoshLong23/barebones-NetlifyCMS
 
 media_folder: static/assets
 
