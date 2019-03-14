@@ -3,6 +3,7 @@ backend:
   repo: JoshLong23/barebones-NetlifyCMS
 
 media_folder: static/assets
+public_folder: /assets
 
 collections:
   - name: "blog"
