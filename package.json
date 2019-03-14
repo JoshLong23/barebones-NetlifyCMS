@@ -1,6 +1,6 @@
 {
-  "name": "gatsby-netlifycms-hello-world",
-  "description": "Gatsby + NetlifyCMS Hello World Starter",
+  "name": "gatsby-netlifycms-starter",
+  "description": "Gatsby + NetlifyCMS Starter",
   "license": "MIT",
   "scripts": {
     "develop": "gatsby develop",
@@ -8,17 +8,17 @@
     "serve": "gatsby serve"
   },
   "dependencies": {
-    "gatsby": "^2.1.29",
-    "gatsby-plugin-netlify": "^2.0.11",
-    "gatsby-plugin-netlify-cms": "^3.0.13",
-    "gatsby-plugin-sharp": "^2.0.27",
+    "gatsby": "^2.1.31",
+    "gatsby-plugin-netlify": "^2.0.12",
+    "gatsby-plugin-netlify-cms": "^3.0.14",
+    "gatsby-plugin-sharp": "^2.0.28",
     "gatsby-remark-copy-linked-files": "^2.0.10",
     "gatsby-remark-images": "^3.0.9",
     "gatsby-remark-relative-images": "^0.2.2",
-    "gatsby-source-filesystem": "^2.0.23",
-    "gatsby-transformer-remark": "^2.3.1",
-    "gatsby-transformer-sharp": "^2.1.16",
-    "netlify-cms": "^2.6.0",
+    "gatsby-source-filesystem": "^2.0.24",
+    "gatsby-transformer-remark": "^2.3.2",
+    "gatsby-transformer-sharp": "^2.1.17",
+    "netlify-cms": "^2.6.1",
     "react": "^16.8.4",
     "react-dom": "^16.8.4"
   }
