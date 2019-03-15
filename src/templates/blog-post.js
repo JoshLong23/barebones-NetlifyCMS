@@ -6,8 +6,8 @@ export default ({ data }) => {
   return (
     <div>
       <a href="/">Go Home</a>
-      <h1>{post.frontmatter.title}</h1>
-      <h2>{post.frontmatter.date}</h2>
+      <h2>{post.frontmatter.title}</h2>
+      <h3>{post.frontmatter.date}</h3>
       <div dangerouslySetInnerHTML={{ __html: post.html }} />
     </div>
   );
